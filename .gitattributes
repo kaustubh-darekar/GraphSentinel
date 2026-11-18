@@ -1,0 +1,5 @@
+stores/** binary
+*.rl binary
+*.parquet binary
+*.png binary
+*.svg text eol=lf

@@ -1,0 +1,17 @@
+{
+  "mcpServers": {
+    "graphsentinel": {
+      "command": "C:/path/to/GraphSentinel/.venv/Scripts/python.exe",
+      "args": [
+        "-m", "graphsentinel.proxy",
+        "--config", "C:/path/to/GraphSentinel/examples/servers.json",
+        "--policy", "C:/path/to/GraphSentinel/examples/policy.mcp.yaml",
+        "--store", "C:/path/to/GraphSentinel/stores/graphsentinel"
+      ],
+      "env": {
+        "GS_TRUSTED_DESTINATIONS": "*@your-company.test,#internal*",
+        "GS_LINEAGE_MODE": "strict"
+      }
+    }
+  }
+}

@@ -1,0 +1,30 @@
+# Secrets
+.env
+
+# Python
+.venv/
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+build/
+dist/
+
+# Live store (stores/demo/ is committed on purpose)
+stores/graphsentinel/
+stores/tmp/
+# relate serve writes a generated auth token next to the store
+stores/*.auth-token
+
+# Web
+node_modules/
+web/dist/
+
+# Editors / OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+*.tsbuildinfo
+
+.claude/

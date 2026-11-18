@@ -1,0 +1,303 @@
+{
+  "format_version": 5,
+  "next_node_id": 77,
+  "next_rel_id": 106,
+  "checkpoint_lsn": 101,
+  "commit_ts": 110,
+  "node_parts": [
+    {
+      "path": "nodes/0-262144-2f8766d36d7814ab455b145cd5219455.parquet",
+      "id_lo": 0,
+      "id_hi": 262144,
+      "rows": 77,
+      "bytes": 24853
+    }
+  ],
+  "rel_parts": [
+    {
+      "path": "relationships/0-262144-c48f370611d8e96b9d3a9dc38aa641b1.parquet",
+      "id_lo": 0,
+      "id_hi": 262144,
+      "rows": 106,
+      "bytes": 2653
+    }
+  ],
+  "bytes_per_node": 322.76623376623377,
+  "bytes_per_rel": 25.028301886792452,
+  "codec": "parquet",
+  "indexes": [
+    {
+      "name": "call_id",
+      "label": "Call",
+      "property": "id#RANGE#call_id"
+    },
+    {
+      "name": "call_session",
+      "label": "Call",
+      "property": "session"
+    },
+    {
+      "name": "data_id",
+      "label": "Data",
+      "property": "id#RANGE#data_id"
+    },
+    {
+      "name": "data_session",
+      "label": "Data",
+      "property": "session"
+    },
+    {
+      "name": "data_vec",
+      "label": "Data",
+      "property": "embedding#VECTOR#data_vec"
+    },
+    {
+      "name": "destination_address",
+      "label": "Destination",
+      "property": "address#RANGE#destination_address"
+    },
+    {
+      "name": "server_name",
+      "label": "Server",
+      "property": "name#RANGE#server_name"
+    },
+    {
+      "name": "session_id",
+      "label": "Session",
+      "property": "id#RANGE#session_id"
+    },
+    {
+      "name": "tool_name",
+      "label": "Tool",
+      "property": "name#RANGE#tool_name"
+    }
+  ],
+  "constraints": [
+    {
+      "name": "call_id",
+      "relationship": false,
+      "label": "Call",
+      "properties": [
+        "id"
+      ],
+      "kind": "unique",
+      "property_type": null
+    },
+    {
+      "name": "data_id",
+      "relationship": false,
+      "label": "Data",
+      "properties": [
+        "id"
+      ],
+      "kind": "unique",
+      "property_type": null
+    },
+    {
+      "name": "destination_address",
+      "relationship": false,
+      "label": "Destination",
+      "properties": [
+        "address"
+      ],
+      "kind": "unique",
+      "property_type": null
+    },
+    {
+      "name": "server_name",
+      "relationship": false,
+      "label": "Server",
+      "properties": [
+        "name"
+      ],
+      "kind": "unique",
+      "property_type": null
+    },
+    {
+      "name": "session_id",
+      "relationship": false,
+      "label": "Session",
+      "properties": [
+        "id"
+      ],
+      "kind": "unique",
+      "property_type": null
+    },
+    {
+      "name": "tool_name",
+      "relationship": false,
+      "label": "Tool",
+      "properties": [
+        "name"
+      ],
+      "kind": "unique",
+      "property_type": null
+    }
+  ],
+  "theater": {
+    "databases": {
+      "neo4j": [
+        25,
+        false
+      ],
+      "system": [
+        25,
+        false
+      ],
+      "system_ontologies": [
+        25,
+        false
+      ]
+    },
+    "index_details": {
+      "call_id": {
+        "kind": "Range",
+        "relationship": false,
+        "labels": [
+          "Call"
+        ],
+        "properties": [
+          "id"
+        ],
+        "with_properties": []
+      },
+      "call_session": {
+        "kind": "Range",
+        "relationship": false,
+        "labels": [
+          "Call"
+        ],
+        "properties": [
+          "session"
+        ],
+        "with_properties": []
+      },
+      "data_id": {
+        "kind": "Range",
+        "relationship": false,
+        "labels": [
+          "Data"
+        ],
+        "properties": [
+          "id"
+        ],
+        "with_properties": []
+      },
+      "data_session": {
+        "kind": "Range",
+        "relationship": false,
+        "labels": [
+          "Data"
+        ],
+        "properties": [
+          "session"
+        ],
+        "with_properties": []
+      },
+      "data_vec": {
+        "kind": "Vector",
+        "relationship": false,
+        "labels": [
+          "Data"
+        ],
+        "properties": [
+          "embedding"
+        ],
+        "with_properties": [
+          "session"
+        ]
+      },
+      "destination_address": {
+        "kind": "Range",
+        "relationship": false,
+        "labels": [
+          "Destination"
+        ],
+        "properties": [
+          "address"
+        ],
+        "with_properties": []
+      },
+      "server_name": {
+        "kind": "Range",
+        "relationship": false,
+        "labels": [
+          "Server"
+        ],
+        "properties": [
+          "name"
+        ],
+        "with_properties": []
+      },
+      "session_id": {
+        "kind": "Range",
+        "relationship": false,
+        "labels": [
+          "Session"
+        ],
+        "properties": [
+          "id"
+        ],
+        "with_properties": []
+      },
+      "tool_name": {
+        "kind": "Range",
+        "relationship": false,
+        "labels": [
+          "Tool"
+        ],
+        "properties": [
+          "name"
+        ],
+        "with_properties": []
+      }
+    },
+    "index_options": {
+      "call_id": {},
+      "call_session": {},
+      "data_id": {},
+      "data_session": {},
+      "data_vec": {
+        "indexConfig": {
+          "t": "map",
+          "v": {
+            "vector.default_search_expansion_factor": {
+              "t": "float",
+              "v": 3.0
+            },
+            "vector.hnsw.ef_construction": {
+              "t": "int",
+              "v": 100
+            },
+            "vector.hnsw.m": {
+              "t": "int",
+              "v": 16
+            },
+            "vector.quantization.type": {
+              "t": "string",
+              "v": "BINARY"
+            },
+            "vector.similarity_function": {
+              "t": "string",
+              "v": "COSINE"
+            }
+          }
+        }
+      },
+      "destination_address": {},
+      "server_name": {},
+      "session_id": {},
+      "tool_name": {}
+    },
+    "graph_types": {},
+    "current_graph_type": {
+      "node_types": [],
+      "edge_types": [],
+      "constraints": [],
+      "drop_constraint_names": []
+    },
+    "derived_constraints": {}
+  },
+  "query_engine": "in-memory",
+  "write_engine": "local"
+}

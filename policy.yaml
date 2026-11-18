@@ -1,0 +1,38 @@
+# Tool risk tags. Each tool can be:
+#   outside    reads content from outside (may hide instructions)
+#   private    reads private data
+#   sends_out  sends data out of the session
+# destination_args: argument names that hold where a Sends out call goes.
+# label_arg:        argument shown as the call's short label in the UI and reasons.
+# label:            fixed short label when there is no label_arg value.
+tools:
+  email.read_inbox:
+    server: email
+    tags: [outside, private]
+    label: inbox
+  email.send_email:
+    server: email
+    tags: [sends_out]
+    destination_args: [to, cc]
+    label_arg: to
+  files.list_files:
+    server: files
+    tags: [private]
+    label: file list
+  files.read_file:
+    server: files
+    tags: [private]
+    label_arg: path
+  web.fetch_url:
+    server: web
+    tags: [outside]
+    label_arg: url
+  slack.post_message:
+    server: slack
+    tags: [sends_out]
+    destination_args: [channel]
+    label_arg: channel
+  calc.calculate:
+    server: calc
+    tags: []
+    label_arg: expression

@@ -1,0 +1,15 @@
+# Risk tags for real MCP servers behind the GraphSentinel proxy.
+# Keys are <server>.<tool>, where <server> is the name in servers.json.
+# Tool names differ between server versions: check what the proxy lists in your client.
+tools:
+  # @modelcontextprotocol/server-filesystem: your files are Private
+  filesystem.read_file:        {tags: [private], label_arg: path}
+  filesystem.read_text_file:   {tags: [private], label_arg: path}
+  filesystem.read_multiple_files: {tags: [private], label_arg: paths}
+  filesystem.list_directory:   {tags: [private], label_arg: path}
+  filesystem.search_files:     {tags: [private], label_arg: pattern}
+  # mcp-server-fetch: web pages are Outside (they can hide instructions)
+  fetch.fetch:                 {tags: [outside], label_arg: url}
+  # Anything that sends data out of the session, for example a Slack or email server:
+  slack.slack_post_message:    {tags: [sends_out], destination_args: [channel_id], label_arg: channel_id}
+  gmail.send_email:            {tags: [sends_out], destination_args: [to], label_arg: to}

@@ -1,0 +1,123 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg: #F4F8FC;
+  --surface: #FDFDFE;
+  --surface-2: #EEF4FA;
+  --border: #DCE4EE;
+  --text: #0E1A2B;
+  --muted: #5D6B7E;
+  --accent: #0099FF;
+  --outside: #C77700;
+  --private: #7C4DDB;
+  --sendsout: #E4572E;
+  --allow: #1F9D55;
+  --ask: #C77700;
+  color-scheme: light;
+  /* RGB channels so Tailwind opacity modifiers (border-sendsout/40) work */
+  --bg-rgb: 244 248 252;
+  --surface-rgb: 253 253 254;
+  --surface-2-rgb: 238 244 250;
+  --border-rgb: 220 228 238;
+  --text-rgb: 14 26 43;
+  --muted-rgb: 93 107 126;
+  --accent-rgb: 0 153 255;
+  --outside-rgb: 199 119 0;
+  --private-rgb: 124 77 219;
+  --sendsout-rgb: 228 87 46;
+  --allow-rgb: 31 157 85;
+  --ask-rgb: 199 119 0;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: "Inter Variable", Inter, system-ui, sans-serif;
+  font-size: 13px;
+  -webkit-font-smoothing: antialiased;
+}
+
+*:focus-visible {
+  outline: 1px solid var(--accent);
+  outline-offset: 1px;
+}
+
+/* Command palette (cmdk) */
+[cmdk-overlay] {
+  position: fixed;
+  inset: 0;
+  background: rgb(14 26 43 / 0.25);
+}
+.cmdk-dialog {
+  position: fixed;
+  top: 18%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: min(560px, calc(100vw - 32px));
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  overflow: hidden;
+  z-index: 50;
+}
+[cmdk-input] {
+  width: 100%;
+  height: 44px;
+  padding: 0 14px;
+  background: transparent;
+  border: 0;
+  border-bottom: 1px solid var(--border);
+  color: var(--text);
+  font-size: 13px;
+  outline: none;
+}
+[cmdk-input]::placeholder {
+  color: var(--muted);
+}
+[cmdk-list] {
+  max-height: 340px;
+  overflow: auto;
+  padding: 6px;
+}
+[cmdk-group-heading] {
+  padding: 8px 8px 4px;
+  font-size: 11px;
+  color: var(--muted);
+}
+[cmdk-item] {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  height: 32px;
+  padding: 0 8px;
+  border-radius: 4px;
+  font-size: 13px;
+  color: var(--text);
+  cursor: pointer;
+}
+[cmdk-item][data-selected="true"] {
+  background: var(--surface-2);
+}
+[cmdk-empty] {
+  padding: 16px;
+  font-size: 12px;
+  color: var(--muted);
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 4px;
+}
