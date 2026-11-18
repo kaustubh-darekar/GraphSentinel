@@ -110,7 +110,7 @@ Optional: the [Relate CLI](https://github.com/relatedb/relate/releases) to inspe
 The embedded engine itself (`relate-db`) is installed by `make setup`.
 
 ```bash
-git clone https://github.com/<you>/GraphSentinel && cd GraphSentinel
+git clone https://github.com/kaustubh-darekar/GraphSentinel && cd GraphSentinel
 cp .env.example .env          # the defaults run the scripted demo, no API key
 make setup                    # Python venv + deps, web deps
 make dev                      # API on :8000, UI on http://127.0.0.1:5173
